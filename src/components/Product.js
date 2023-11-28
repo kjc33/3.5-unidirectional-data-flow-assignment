@@ -1,15 +1,13 @@
-import styles from './Product.module.css'
-
 import { useState } from 'react';
-import Button from './Button';
-import Input from './Input';
+
+import Card from './Card';
 
 function Product() {
   const [count, setCount] = useState(0);
   const [discount, setDiscount] = useState(0);
-  const [name, setName] = useState('Banana');
+  const [name, setName] = useState('Spaghetti');
   const [price, setPrice] = useState(2.99);
-  
+
   const handlerPlus = () => {
     setCount((prevCount) => {
       let count = prevCount + 1;
@@ -19,6 +17,7 @@ function Product() {
       return count;
     });
   };
+
   const handlerMinus = () => {
     setCount((prevCount) => {
       let count = prevCount - 1;
@@ -33,30 +32,30 @@ function Product() {
   const handlerChangeName = (value) => {
     setName(value);
   };
+
   const handlerChangePrice = (value) => {
     setPrice(value);
   };
+
   const handlerAddProduct = () => {
     console.log('handlerAddProduct');
   }
 
-
   return (
-    <div className={styles.container}>
-      <div className={styles.name}>{name}</div>
-      <div className={styles.counter}>
-        <Button label='➖' onClick={handlerMinus} />
-        <span className={styles.count}>{count}</span>
-        <Button label='➕' onClick={handlerPlus} />
-      </div>
-      <div className={styles.price}>{`$ ${price}`} each</div>
-      <div className={styles.discount}>{`Discount: ${discount}%`}</div>
-      <div className={styles.form}>
-        <Input value={name} label='Product Name' onChange={handlerChangeName} />
-        <Input value={price} label='Price' onChange={handlerChangePrice} />
-      </div>
-      <Button label='Add Product' onClick={handlerAddProduct} />
-    </div>
+    <>
+      <Card
+        name={name}
+        count={count}
+        price={price}
+        discount={discount}
+
+        handlerPlus={handlerPlus}
+        handlerMinus={handlerMinus}
+        handlerChangeName={handlerChangeName}
+        handlerChangePrice={handlerChangePrice}
+        handlerAddProduct={handlerAddProduct}
+      />
+    </>
   );
 }
 export default Product;
