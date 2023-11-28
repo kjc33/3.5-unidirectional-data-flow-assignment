@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
 import Card from './Card';
+import ViewList from './ViewList';
 
 function Product() {
   const [count, setCount] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [name, setName] = useState('Spaghetti');
   const [price, setPrice] = useState(2.99);
+
+  const [items, setItems] = useState([]);
 
   const handlerPlus = () => {
     setCount((prevCount) => {
@@ -38,7 +41,15 @@ function Product() {
   };
 
   const handlerAddProduct = () => {
-    console.log('handlerAddProduct');
+    console.log('handlerAddProduct: name, price', name, price);
+    const newItem = {
+      name: name,
+      price: price,
+    };
+
+    const newList = [...items, newItem];
+    console.log("newList:", newList)
+    setItems(newList);
   }
 
   return (
@@ -55,6 +66,8 @@ function Product() {
         handlerChangePrice={handlerChangePrice}
         handlerAddProduct={handlerAddProduct}
       />
+
+      <ViewList list={items} />
     </>
   );
 }

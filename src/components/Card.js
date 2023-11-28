@@ -3,7 +3,7 @@ import React from 'react'
 import Button from './Button';
 import Input from './Input';
 
-import styles from './Product.module.css'
+import styles from './Card.module.css'
 
 export default function Card(
     {  name, count, price, discount, 
