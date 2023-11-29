@@ -41,7 +41,8 @@ function Product() {
   };
 
 const purchaseTotal = () => {
-  let total = ({count}*{price})-(({count}*{price})*({discount}/100));
+  let total = (count * price) - (count * price * (discount/100));
+  return total.toFixed(2);
 }
 
   const handlerAddProduct = () => {
@@ -51,7 +52,7 @@ const purchaseTotal = () => {
       count: count,
       price: price,
       discount: discount,
-      total: purchaseTotal
+      total: purchaseTotal(),
     };
 
 /* The line `const newList = [...items, newItem];` is creating a new array called `newList` by
@@ -60,8 +61,8 @@ way to add a new item to an existing array without modifying the original array.
     const newList = [...items, newItem];
     console.log("newList:", newList)
     setItems(newList);
-    setName('');
-    setPrice(0);
+    setName('Banana');
+    setPrice(1.25);
   }
 
   return (

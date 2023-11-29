@@ -22,10 +22,10 @@ export default function Card(
                 <div className={styles.price}>{`$ ${price}`} each</div>
                 <div className={styles.discount}>{`Discount: ${discount}%`}</div>
                 <div className={styles.form}>
-                    <Input value={name} label='Product Name' onChange={handlerChangeName} />
-                    <Input value={price} label='Price' onChange={handlerChangePrice} />
+                    <Input type="text" value={name} label='Product Name' onChange={handlerChangeName} />
+                    <Input type="number" value={price} label='Price' onChange={handlerChangePrice} />
                 </div>
-                <div className='total'>{total}</div>
+                <div className='total'>{total()}</div>
                 <Button label='Add Product' onClick={handlerAddProduct} />
             </div>
         </div>
