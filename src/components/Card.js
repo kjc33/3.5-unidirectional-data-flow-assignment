@@ -6,7 +6,7 @@ import Input from './Input';
 import styles from './Card.module.css'
 
 export default function Card(
-    {  name, count, price, discount, 
+    {  name, count, price, discount, total,
         handlerPlus, handlerMinus, handlerChangeName, 
         handlerChangePrice, handlerAddProduct }
     ) {
@@ -25,6 +25,7 @@ export default function Card(
                     <Input value={name} label='Product Name' onChange={handlerChangeName} />
                     <Input value={price} label='Price' onChange={handlerChangePrice} />
                 </div>
+                <div className='total'>{total}</div>
                 <Button label='Add Product' onClick={handlerAddProduct} />
             </div>
         </div>
